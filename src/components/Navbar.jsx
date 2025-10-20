@@ -4,10 +4,14 @@ import userLogo from '../assets/user.png'
 import { AuthContext } from '../Provider/AuthProvider';
 const Navbar = () => {
     const { user, logOut } = use(AuthContext);
-    console.log(user);
+
     const handleLogOut = () => {
-        logOut();
-        
+        logOut().then(() => {
+            alert('SignOut Done')
+        }).catch((error) => {
+            console.log(error);
+        });
+
     }
     return (
         <div className='flex justify-between items-center mt-2 mb-6'>

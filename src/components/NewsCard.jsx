@@ -1,17 +1,16 @@
 import { FaRegEye, FaStar, FaRegBookmark, FaShareAlt } from "react-icons/fa";
 import { format } from 'date-fns';
+import { Link } from "react-router";
 
 
 const NewsCard = ({ news }) => {
-    console.log(news);
-    
-    const { title,
+    const { id, title,
         details,
         image_url,
         author,
         total_view,
         rating,
-        
+
     } = news;
     return (
         <div className="card bg-base-100 shadow-md  rounded-xl overflow-hidden">
@@ -48,9 +47,9 @@ const NewsCard = ({ news }) => {
                 />
                 <p className="text-gray-600 leading-relaxed">
                     {details.slice(0, 250)}...
-                    <span className="text-primary font-semibold cursor-pointer hover:underline">
+                    <Link to={`/news-details/${id}`} className="text-primary font-semibold cursor-pointer hover:underline">
                         Read More
-                    </span>
+                    </Link>
                 </p>
             </div>
 
